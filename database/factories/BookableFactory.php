@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Bookable;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
+
 
 class BookableFactory extends Factory
 {
@@ -19,10 +21,21 @@ class BookableFactory extends Factory
      *
      * @return array
      */
+
     public function definition()
     {
+        $suffix = [
+            'Villa',
+            'House',
+            'Cottage',
+            'Luxury Villa',
+            'Cheap Rooms',
+            'Luxury Rooms',
+            'Fancy Rooms',
+        ];
         return [
-            
+            'title'=>$this->faker->city . ' '. Arr::random($suffix),
+            'description'=>$this->faker->text
         ];
     }
 }
