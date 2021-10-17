@@ -1,7 +1,9 @@
 <template>
-    <div class="flex justify-center">
-        <BookableListItem content="this is first content" title="Jafar"/>
-        <BookableListItem content="this is second content" title="Taghi"/>
+    <div class="container-fluid">
+      <div v-for="(book,id) in bookables" :key="book.id">
+        <BookableListItem description="book.description" title=" book.title "/>
+      </div>
+
     </div>
 </template>
 
@@ -11,7 +13,26 @@ export default {
     name: "Bookables",
     components:{
         BookableListItem
-    }
+    },
+  data(){
+      return{
+        bookables : []
+      }
+  },
+  created() {
+      const p = new Promise((resolve , reject)=>{
+        console.log(resolve);
+        console.log(reject);
+        setTimeout(()=>resolve("Hello"), 5000);
+      }).then(result=>console.log(result));
+
+      axios.get('/api/all')
+    .then(result=>{
+      this.bookables = result.data;
+    }).catch(err=>{
+        console.log(err);
+      });
+  }
 }
 </script>
 

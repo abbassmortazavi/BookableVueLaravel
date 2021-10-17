@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('all' , function (){
+    return \App\Models\Bookable::all();
+});
+Route::get('getBookable/{id}' , function (Request $request , $optional = null){
+    $res = \App\Models\Bookable::findOrFail($request->id);
+    if ($res){
+        return $res;
+    }
+    return response()->json('Not Found' , 500);
+});
