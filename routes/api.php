@@ -19,7 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::namespace('App\Http\Controllers\Api')->group(function (){
-    Route::get('all' , 'BookableController@all');
-    Route::get('getBookable/{id}' , 'BookableController@getBookable');
+//    Route::get('all' , 'BookableController@all');
+//    Route::get('getBookable/{id}' , 'BookableController@getBookable');
+    Route::apiResource('bookables' , 'BookableController')->only('index' , 'show');
 });
 

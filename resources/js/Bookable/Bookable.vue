@@ -11,7 +11,9 @@
 
     </div>
     <!-- ... -->
-    <div>9</div>
+    <div>
+      <Availability/>
+    </div>
 
 
   </div>
@@ -19,17 +21,19 @@
 
 <script>
 
+import Availability from "./Availability";
 export default {
   name: "Bookable",
+  components: {Availability},
   data(){
     return{
       bookable: ''
     }
   },
   created() {
-    axios.get(`/api/getBookable/${this.$route.params.id}`)
+    axios.get(`/api/bookables/${this.$route.params.id}`)
     .then(res=>{
-      this.bookable = res.data;
+      this.bookable = res.data.data;
     }).catch(err=>{
       console.log(err);
     });

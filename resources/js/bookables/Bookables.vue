@@ -20,15 +20,9 @@ export default {
       }
   },
   created() {
-      const p = new Promise((resolve , reject)=>{
-        console.log(resolve);
-        console.log(reject);
-        setTimeout(()=>resolve("Hello"), 5000);
-      }).then(result=>console.log(result));
-
-      axios.get('/api/all')
+      axios.get('/api/bookables')
     .then(result=>{
-      this.bookables = result.data;
+      this.bookables = result.data.data;
     }).catch(err=>{
         console.log(err);
       });
