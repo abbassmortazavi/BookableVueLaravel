@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body class="antialiased">
-        <div id="app">
+        <div id="app" class="container-fluid">
             <index></index>
         </div>
         <script src="/js/app.js"></script>

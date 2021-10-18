@@ -18,13 +18,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('all' , function (){
-    return \App\Models\Bookable::all();
+Route::namespace('App\Http\Controllers\Api')->group(function (){
+    Route::get('all' , 'BookableController@all');
+    Route::get('getBookable/{id}' , 'BookableController@getBookable');
 });
-Route::get('getBookable/{id}' , function (Request $request , $optional = null){
-    $res = \App\Models\Bookable::findOrFail($request->id);
-    if ($res){
-        return $res;
-    }
-    return response()->json('Not Found' , 500);
-});
+

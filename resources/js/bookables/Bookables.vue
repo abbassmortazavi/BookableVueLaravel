@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
       <div v-for="(book,id) in bookables" :key="book.id">
-        <BookableListItem description="book.description" title=" book.title "/>
+        <BookableListItem v-bind="book"/>
       </div>
 
     </div>
