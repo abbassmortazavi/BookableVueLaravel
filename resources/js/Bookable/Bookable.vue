@@ -8,7 +8,7 @@
           {{ bookable.description}}
         </p>
       </div>
-
+      <ReviewList/>
     </div>
     <!-- ... -->
     <div>
@@ -22,9 +22,13 @@
 <script>
 
 import Availability from "./Availability";
+import ReviewList from "./ReviewList.vue";
 export default {
   name: "Bookable",
-  components: {Availability},
+  components: {
+    Availability,
+    ReviewList,
+    },
   data(){
     return{
       bookable: ''
