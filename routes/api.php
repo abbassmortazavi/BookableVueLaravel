@@ -22,6 +22,7 @@ Route::namespace('App\Http\Controllers\Api')->group(function (){
 //    Route::get('all' , 'BookableController@all');
 //    Route::get('getBookable/{id}' , 'BookableController@getBookable');
     Route::apiResource('bookables' , 'BookableController')->only('index' , 'show');
-    Route::get('bookables/{bookable}/availability' , 'BookableAvailabilityController')->name('bookables.availability.show');
+    Route::get('/bookables/{bookable}/availability' , 'BookableAvailabilityController')->name('bookables.availability.show');
+
 });
 
