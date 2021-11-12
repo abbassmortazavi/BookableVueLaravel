@@ -8,11 +8,11 @@
           {{ bookable.description}}
         </p>
       </div>
-      <ReviewList/>
+      <ReviewList :bookable-id="this.$route.params.id"/>
     </div>
     <!-- ... -->
     <div>
-      <Availability/>
+      <Availability :bookable-id="this.$route.params.id"/>
     </div>
 
 
